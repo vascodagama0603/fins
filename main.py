@@ -27,6 +27,7 @@ def get_machines(config):
         m = Machine()
         try:
             m.ip = config['Machine'+ str(cnt)]['IP']
+            m.to_fins_address = config['Machine'+ str(cnt)]['FINS'].strip()
             m.port = config['Machine'+ str(cnt)]['PORT']
             m.name = config['Machine'+ str(cnt)]['NAME']
             m.recieve_address = config['Machine'+ str(cnt)]["RECEIVE_ADRESS"].strip().split(",")

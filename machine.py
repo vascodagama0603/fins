@@ -5,7 +5,7 @@ class Machine():
         self.ip = ""
         self.port = ""
         self.my_fins_address = "0.1.0"
-        self.to_fins_address = "0.10.0"
+        self.to_fins_address = "0.0.0"
         self.name = ""
         self.recieve_address = []
         self.send_complete_address = ""
