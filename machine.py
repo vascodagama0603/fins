@@ -14,14 +14,14 @@ class Machine():
         self.recieve_bit_size = 0
         
     def get_data_from_adrress(self):
-        finsudp = fins(self.ip, self.my_fins_address, self.to_fins_address)
+        finsudp = fins(self.ip, self.to_fins_address, self.my_fins_address)
         for i, adr in enumerate(self.recieve_address):
             self.recieve_data.append(finsudp.selectExchangeFunc(adr, self.recieve_bit_size[i])[0])
         print(self.recieve_data)
 
     def get_status(self):
         status_num = 0
-        finsudp = fins(self.ip, self.my_fins_address, self.to_fins_address)
+        finsudp = fins(self.ip, self.to_fins_address, self.my_fins_address)
         data = finsudp.selectExchangeFunc(self.recieve_trigger_address, "INT16")
         if data:
             status_num = data[0]
@@ -29,5 +29,5 @@ class Machine():
     
     def write_complete(self):
         write_data = 1
-        finsudp = fins(self.ip, self.my_fins_address, self.to_fins_address)
+        finsudp = fins(self.ip, self.to_fins_address, self.my_fins_address)
         status_num = finsudp.write(self.send_complete_address, write_data.to_bytes(2,'big'))
